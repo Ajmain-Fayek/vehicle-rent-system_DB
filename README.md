@@ -186,4 +186,4 @@ HAVING
 
 ---
 
-Notes: To avoid any unintentional error, please flow the documentation step by step.
+Notes: To avoid any unintentional error, please follow the documentation step by step.
