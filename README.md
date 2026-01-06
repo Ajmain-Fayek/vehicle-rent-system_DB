@@ -102,7 +102,7 @@ CREATE INDEX idx_bookings_ref ON bookings (user_id, vehicle_id);
 
 ---
 
-#### Retrive booking information along with customer name & vehicle name
+#### 1. Retrive booking information along with customer name & vehicle name
 
 As bookings table contains **_REFERENCE_** `foreign key` constraints with `users` table and `vehicle` table to retrive bookings information along with customer name and vehcile name we can `join` bookings table with users table and vechile table to get the right user and vehicle.
 
@@ -123,7 +123,7 @@ FROM
 
 ---
 
-#### Find all vehicles that have never been booked
+#### 2. Find all vehicles that have never been booked
 
 `NOT EXISTS` will return true/false. If `bookings` has/had vehciles id, then return true, if not then return false. If `NOT EXISTS` is true then retrive the vehicle tupple. If not then skip that tuple.
 
@@ -145,7 +145,7 @@ WHERE
 
 ---
 
-#### Retrive all available vehicles of a specific type
+#### 3. Retrive all available vehicles of a specific type
 
 `vehicles` table contains 2 ENUM type attributes. `type` = ['car', 'bike', 'truck'] & `availability_status` = ['available', 'rented', 'maintenance']. We can simply define the types in `WHERE` cluse.
 
@@ -161,7 +161,7 @@ WHERE
 
 ---
 
-#### Find the total number of bookings for each vehicle and display only those vehicles that have more than 2 bookings
+#### 4. Find the total number of bookings for each vehicle and display only those vehicles that have more than 2 bookings
 
 We will join `vehicles` table with `bookings` table as we need vehicles name. We need to count the tuples of each distinct vehicles from bookings table (`...COUNT(b.vehicle_id) AS Total Bookings...`). Which will be our ***Total bookings*** number. Then Group the vehicle tuple with their name. At last we will do filtering using `HAVING` clause.
 
