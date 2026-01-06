@@ -57,9 +57,9 @@ CREATE TABLE IF NOT EXISTS bookings (
 -- Index on user_id & vehicle_id
 CREATE INDEX idx_bookings_ref ON bookings (user_id, vehicle_id);
 
--- --------------------------------------------------------------------------------
--- |  JOIN - Retrive booking information along with customer name & vehicle name  |
--- --------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------
+-- | 1. JOIN - Retrive booking information along with customer name & vehicle name  |
+-- ----------------------------------------------------------------------------------
 SELECT
   b.id AS "Booking ID",
   b.start_date AS "Start Date",
@@ -73,9 +73,9 @@ FROM
   JOIN users AS u ON b.user_id = u.id
   JOIN vehicles AS v ON b.vehicle_id = v.id;
 
--- ------------------------------------------------------------
--- |  EXISTS - Find all vehicles that have never been booked  |
--- ------------------------------------------------------------
+-- --------------------------------------------------------------
+-- | 2. EXISTS - Find all vehicles that have never been booked  |
+-- --------------------------------------------------------------
 SELECT
   *
 FROM
@@ -90,9 +90,9 @@ WHERE
       vehicle_id = vehicles.id
   );
 
--- ---------------------------------------------------------------
--- |  WHERE - Retrive all available vehicles of a specific type  |
--- ---------------------------------------------------------------
+-- -----------------------------------------------------------------
+-- | 3. WHERE - Retrive all available vehicles of a specific type  |
+-- -----------------------------------------------------------------
 SELECT
   *
 FROM
@@ -101,9 +101,9 @@ WHERE
   type = 'bike'
   AND availability_status = 'available';
 
--- -----------------------------------------------------------------------------
--- |  GROUP BY and Having - Retrive all available vehicles of a specific type  |
--- -----------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------
+-- | 4. GROUP BY and Having - Retrive all available vehicles of a specific type  |
+-- -------------------------------------------------------------------------------
 SELECT
   v.name AS "Vehicle Name",
   count(b.vehicle_id) AS "Total Bookings"
