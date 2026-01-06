@@ -2,9 +2,15 @@
 
 ---
 
-## Schema ERD: <https://dbdiagram.io/d/Library_Management_ERD-6947a8184bbde0fd74e9d608>
+## Schema ERD
 
-## Viva Videos: <>
+<https://dbdiagram.io/d/Library_Management_ERD-6947a8184bbde0fd74e9d608>
+
+---
+
+## Viva Videos
+
+<>
 
 ---
 
