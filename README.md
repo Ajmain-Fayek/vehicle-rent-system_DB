@@ -183,3 +183,7 @@ GROUP BY
 HAVING
   count(b.vehicle_id) > 2;
 ```
+
+---
+
+Notes: To avoid any unintentional error, please flow the documentation step by step.
